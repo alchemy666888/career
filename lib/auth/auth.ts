@@ -5,7 +5,6 @@ const providers = process.env.AUTH_GITHUB_ID && process.env.AUTH_GITHUB_SECRET ?
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers,
-  trustHost: true,
   session: { strategy: "jwt" },
   callbacks: {
     session({ session, token }) {
