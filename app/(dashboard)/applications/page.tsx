@@ -1,1 +1,6 @@
-export default function ApplicationsPage(){ return <><h1>Applications</h1><section className="card"><h2>Drafting workspace</h2><p>Drafts are generated from user-approved profile facts and supporting evidence only. Users review and approve every artifact before external use.</p></section></> }
+import { CareerNav } from "@/components/career/CareerNav";
+import { DraftStudioPage } from "@/components/career/DraftStudioPage";
+
+export default function ApplicationsPage() {
+  return <main className="career-page"><CareerNav /><DraftStudioPage /></main>;
+}

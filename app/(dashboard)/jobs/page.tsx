@@ -1,2 +1,6 @@
-import { jobStatuses } from "@/lib/jobs/model";
-export default function JobsPage(){ return <><h1>Jobs</h1><section className="card"><form className="form"><input className="input" placeholder="Job title"/><input className="input" placeholder="Company"/><textarea placeholder="Paste job description" rows={8}/><button className="btn">Save job draft</button></form></section><h2>Status workflow</h2><p className="muted">{jobStatuses.join(" → ")}</p></> }
+import { CareerNav } from "@/components/career/CareerNav";
+import { JobSearchPage } from "@/components/career/JobSearchPage";
+
+export default function JobsPage() {
+  return <main className="career-page"><CareerNav /><JobSearchPage /></main>;
+}
