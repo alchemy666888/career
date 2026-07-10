@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ export default function HomePage() {
     <main className="landing-page">
       <header className="landing-header" aria-label="Primary navigation">
         <Link className="landing-brand" href="/">
-          <img className="landing-brand-logo" src="/careerai-logo.svg" alt="CareerAI" />
+          <Image className="landing-brand-logo" src="/careerai-logo.svg" alt="CareerAI" width={190} height={50} priority />
         </Link>
         <nav className="landing-auth-nav" aria-label="Account access">
           <Link className="career-btn secondary" href="/signin">
