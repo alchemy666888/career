@@ -1,12 +1,7 @@
 "use client";
 import Link from "next/link";
-import { careerJobs } from "./data";
-import { CareerIcon } from "./icons";
+import { useState } from "react";
+import { useJourney } from "./journey/JourneyProvider";
 import { JobCard } from "./JobCard";
-import { useSavedJobs } from "./useSavedJobs";
-
-export function SavedJobsPage() {
-  const { saved, toggleSaved } = useSavedJobs();
-  const jobs = careerJobs.filter((job) => saved.has(job.id));
-  return <><section className="career-page-banner career-container"><div className="career-empty-icon"><CareerIcon name="save" /></div><h1 className="career-page-title with-icon">Saved positions</h1><p className="career-lede small">Keep promising roles in one place and return when you are ready to tailor an application.</p></section><section className="career-section career-container">{jobs.length === 0 ? <div className="career-empty"><div className="career-empty-icon"><CareerIcon name="save" /></div><h2>No saved positions yet</h2><p>Save jobs from Search to add them here. Saved jobs are currently browser-local until backend persistence is implemented.</p><div className="career-actions"><Link className="career-btn ghost" href="/jobs">Browse positions</Link></div></div> : <div className="career-cards">{jobs.map((job) => <JobCard key={job.id} job={job} ranked saved onSave={toggleSaved} />)}</div>}</section></>;
-}
+import { RoleComparison } from "./shortlist/RoleComparison";
+export function SavedJobsPage(){const {state}=useJourney(); const [sort,setSort]=useState("match"); const jobs=state.roles.filter(r=>r.status==="shortlisted"&&!r.dismissed).sort((a,b)=>sort==="match"?b.matchScore-a.matchScore:(a.closingDate??"").localeCompare(b.closingDate??"")); return <section className="career-container cj-page-head"><h1>Shortlist</h1><p>{jobs.length} shortlisted roles. This compatibility route uses canonical role status and browser-local demo data.</p><label>Sort shortlist<select value={sort} onChange={e=>setSort(e.target.value)}><option value="match">Match</option><option value="deadline">Deadline</option></select></label>{jobs.length===0?<div className="cj-empty"><h2>No shortlisted roles yet</h2><p>Save roles from Discover to compare them here.</p><Link className="career-btn" href="/jobs">Discover roles</Link></div>:<><div className="career-cards">{jobs.map(j=><JobCard key={j.id} job={j} compare/>)}</div><RoleComparison/></>}</section>}

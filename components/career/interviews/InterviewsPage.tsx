@@ -1,0 +1,6 @@
+"use client";
+import Link from "next/link";
+import { useJourney } from "../journey/JourneyProvider";
+import { calculateInterviewReadiness } from "../journey/selectors";
+import { Progress } from "../ui/Primitives";
+export function InterviewsPage(){const {state}=useJourney(); const groups={"Needs preparation":state.interviews.filter(i=>!i.completed&&calculateInterviewReadiness(i)<80),Upcoming:state.interviews.filter(i=>!i.completed),Completed:state.interviews.filter(i=>i.completed)}; return <section className="career-container cj-page-head"><h1>Interviews</h1><p>Multiple fixture interview records grouped by urgency. No calendar or email integration is connected.</p>{Object.entries(groups).map(([g,items])=><article className="cj-card" key={g}><h2>{g}</h2>{items.length?items.map(i=>{const r=state.roles.find(x=>x.id===i.roleId)!; return <section className="cj-row" key={i.id}><h3>{r.title} · {r.company}</h3><p>{new Date(i.when).toLocaleString()} · {i.stage} · {i.format}</p><Progress value={calculateInterviewReadiness(i)} label="Readiness"/><Link className="career-btn" href={`/interviews/${i.id}`}>{i.completed?"Capture follow-up":"Continue preparation"}</Link></section>}):<p>No interviews in this group. Submitted applications will appear here when interviews are added as fixtures.</p>}</article>)}</section>}

@@ -1,0 +1,8 @@
+import { createInitialJourneyState } from "./fixtures";
+import type { JourneyState } from "./types";
+export const STORAGE_KEY="careerai-journey-ui-v2"; const VERSION=2;
+type Persisted={version:number; roles:JourneyState["roles"]; applications:JourneyState["applications"]; interviews:JourneyState["interviews"]; profile:JourneyState["profile"]; comparisonRoleIds:string[]};
+export function serializeJourneyState(s:JourneyState){const p:Persisted={version:VERSION,roles:s.roles,applications:s.applications,interviews:s.interviews,profile:s.profile,comparisonRoleIds:s.comparisonRoleIds}; return JSON.stringify(p)}
+export function parseJourneyState(raw:string|null):{state:JourneyState; warning?:string}{const base=createInitialJourneyState(); if(!raw) return {state:base}; try{const p=JSON.parse(raw) as Partial<Persisted>; if(p.version!==VERSION||!Array.isArray(p.roles)||!Array.isArray(p.applications)||!Array.isArray(p.interviews)||!p.profile) return {state:base,warning:"Stored demo data used an unsupported version and was reset to fixtures."}; return {state:{...base,roles:p.roles,applications:p.applications,interviews:p.interviews,profile:p.profile,comparisonRoleIds:p.comparisonRoleIds??[],toasts:[],hydrated:false}}}catch{return {state:base,warning:"Stored demo data could not be read, so fixtures were restored."}}}
+export function loadJourneyState(){if(typeof window==="undefined") return {state:createInitialJourneyState()}; return parseJourneyState(window.localStorage.getItem(STORAGE_KEY))}
+export function saveJourneyState(s:JourneyState){if(typeof window==="undefined") return; window.localStorage.setItem(STORAGE_KEY, serializeJourneyState(s))}
