@@ -28,7 +28,8 @@ export function InterviewPrepPage() {
       setFeedback("Start with a brief answer, then we can help you make it more specific.");
       return;
     }
-    setFeedback("Strong start. Add a concrete outcome, name your contribution, and close with what you learned.");
+    const wordCount = answer.trim().split(/\s+/).length;
+    setFeedback(`Feedback for your ${wordCount}-word draft: add a concrete outcome, name your contribution, and close with what you learned.`);
   }
 
   function nextQuestion() {
