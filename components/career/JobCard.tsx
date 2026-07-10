@@ -1,19 +1,6 @@
 "use client";
 import Link from "next/link";
-import type { CareerJob } from "./data";
-import { CareerIcon } from "./icons";
-
-function tagClass(index: number) { return ["", "purple", "blue", "gold"][index % 4]; }
-
-export function JobCard({ job, ranked = false, saved = false, onSave }: { job: CareerJob; ranked?: boolean; saved?: boolean; onSave?: (id: number) => void }) {
-  const score = `${job.score}%`;
-  return <article className="career-job-card">
-    <div className="career-job-top">
-      {ranked ? <><div className="career-match-row"><div><h3 className="career-job-title">{job.title}</h3><div className="career-company">{job.company}</div></div><div className="career-score" style={{ "--score": score } as React.CSSProperties}>{job.score}%</div></div><div className="career-progress" style={{ "--score": score } as React.CSSProperties}><span /></div></> : <><h3 className="career-job-title">{job.title}</h3><div className="career-company">{job.company}</div></>}
-      <p className="career-job-desc">{job.desc}</p>
-      <div className="career-tag-row">{job.tags.map((tag, index) => <span className={`career-tag ${tagClass(index)}`} key={tag}>{tag}</span>)}</div>
-    </div>
-    <div className="career-job-meta"><div className="career-meta">Work style<strong>{job.type}</strong></div><div className="career-meta">Level<strong>{job.level}</strong></div><div className="career-meta">Salary<strong>{job.salary}</strong></div></div>
-    <div className="career-job-actions"><Link className="career-btn dark" href="/applications">Tailor application</Link><button className={`career-icon-btn ${saved ? "saved" : ""}`} type="button" onClick={() => onSave?.(job.id)} aria-label={saved ? "Remove from saved" : "Save position"}><CareerIcon name="save" /></button></div>
-  </article>;
-}
+import { useJourney } from "./journey/JourneyProvider";
+import { StatusBadge } from "./ui/Primitives";
+import type { JourneyRole } from "./journey/types";
+export function JobCard({job,compare=false}:{job:JourneyRole;compare?:boolean}){const {state,dispatch}=useJourney(); const saved=job.status==="shortlisted"; return <article className="career-job-card cj-card"><div className="career-match-row"><div><h3 className="career-job-title">{job.title}</h3><div className="career-company">{job.company}</div></div><div className="career-score" aria-label={`Match ${job.matchScore} percent`}>{job.matchScore}%</div></div><p>{job.location} · {job.workStyle} · {job.salary} · {job.posted}</p><p><strong>{job.confidence}</strong> based on fixture evidence.</p><StatusBadge status={job.status}/><ul>{job.fitReasons.slice(0,2).map(r=><li key={r}>{r}</li>)}</ul>{job.materialGap&&<p className="cj-gap"><strong>Gap:</strong> {job.materialGap}</p>}<div className="career-job-actions"><Link className="career-btn" href={`/jobs/${job.id}`}>View role</Link><button className="career-icon-btn" type="button" aria-pressed={saved} onClick={()=>dispatch({type:saved?"unsaveRole":"saveRole",roleId:job.id})}>{saved?"Saved":"Save"}</button><button className="career-tool" type="button" onClick={()=>dispatch({type:"dismissRole",roleId:job.id})}>Dismiss</button>{compare&&<button className="career-tool" type="button" aria-pressed={state.comparisonRoleIds.includes(job.id)} onClick={()=>dispatch({type:"toggleCompare",roleId:job.id})}>Compare</button>}</div></article>}

@@ -14,3 +14,64 @@ a{color:inherit;text-decoration:none}.container{max-width:1180px;margin:0 auto;p
 .career-brand-logo{display:block;width:220px;height:auto}.landing-brand-logo{display:block;width:190px;height:auto}@media(max-width:680px){.career-brand-logo{width:168px}.landing-brand-logo{width:158px}}
 
 .interview-hero{padding-bottom:24px}.interview-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;color:#047857;font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.interview-kicker svg{width:18px;height:18px}.interview-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.interview-summary article{padding:20px;border:1px solid #d6f1de;border-radius:18px;background:#fff;box-shadow:0 10px 28px #0f172a0a}.interview-summary span,.interview-label{display:block;color:#64748b;font-size:12px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}.interview-summary strong{display:block;margin-top:8px;font-size:20px;letter-spacing:-.03em}.interview-summary p{margin:7px 0 0;color:#475569;font-size:14px}.interview-workspace{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.75fr);gap:22px;padding:30px 0 60px}.interview-main,.interview-sidebar{display:grid;gap:22px;align-content:start}.interview-panel{box-shadow:0 8px 22px #0f172a0d}.interview-panel .career-panel-bar{align-items:flex-start}.interview-panel .career-panel-bar h2{margin-top:4px;max-width:690px}.interview-answer{padding:22px}.interview-answer label{display:block;margin-bottom:10px;font-weight:850}.interview-answer textarea,.interview-notes textarea{width:100%;min-height:166px;padding:14px;resize:vertical;border:1px solid #d9e0e9;border-radius:12px;outline:0;font:inherit;line-height:1.5}.interview-answer textarea:focus,.interview-notes textarea:focus{border-color:#16a34a;box-shadow:0 0 0 3px #dcfce7}.interview-answer-actions{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#64748b;font-size:13px}.interview-feedback{margin:16px 0 0;padding:13px 15px;border:1px solid #bbf7d0;border-radius:12px;color:#166534;background:#f0fdf4;line-height:1.45}.interview-stories{display:grid;gap:12px;padding:18px}.interview-stories article{padding:16px;border:1px solid #e5f2e8;border-radius:14px;background:#fbfff8}.interview-stories strong{font-size:16px}.interview-stories p{margin:7px 0;color:#475569;font-size:14px;line-height:1.45}.interview-stories span{color:#047857;font-size:12px;font-weight:800}.interview-checklist{display:grid;gap:3px;padding:10px 16px 16px}.interview-checklist label{display:flex;align-items:flex-start;gap:10px;padding:11px 4px;color:#334155;line-height:1.4;font-size:14px}.interview-checklist input{width:17px;height:17px;margin-top:1px;accent-color:#16a34a}.interview-checklist input:checked+span{text-decoration:line-through;color:#64748b}.interview-notes{padding:16px}.interview-notes textarea{min-height:132px}.interview-notes span{display:block;margin-top:9px;color:#64748b;font-size:12px}@media(max-width:950px){.interview-workspace{grid-template-columns:1fr}.interview-sidebar{grid-template-columns:1fr 1fr}}@media(max-width:680px){.career-nav{grid-template-columns:repeat(2,1fr)}.interview-summary,.interview-sidebar{grid-template-columns:1fr}.interview-answer-actions{align-items:stretch;flex-direction:column}.interview-answer-actions .career-btn{width:100%}}
+/* CareerAI journey UI tokens and layouts */
+:root {
+  --cj-surface: #ffffff;
+  --cj-surface-soft: #f3fbf6;
+  --cj-text: #10231a;
+  --cj-muted: #5f7167;
+  --cj-border: #d8eadf;
+  --cj-brand: #0f8f54;
+  --cj-brand-dark: #086235;
+  --cj-focus: #ffb020;
+  --cj-radius: 18px;
+  --cj-shadow: 0 18px 50px rgba(12, 77, 44, 0.12);
+}
+*:focus-visible { outline: 3px solid var(--cj-focus); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+.cj-shell { min-height: 100vh; background: linear-gradient(180deg, #f7fff9, #eef8f2); color: var(--cj-text); overflow-x: clip; }
+.cj-shell-header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px); }
+.cj-main { padding: 24px 0 64px; }
+.cj-profile-pill { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--cj-border); border-radius: 999px; color: var(--cj-text); text-decoration: none; }
+.cj-page-head { display: grid; gap: 18px; }
+.cj-hero-card, .cj-card, .cj-empty { background: var(--cj-surface); border: 1px solid var(--cj-border); border-radius: var(--cj-radius); box-shadow: var(--cj-shadow); padding: clamp(18px, 3vw, 28px); }
+.cj-hero-card { background: linear-gradient(135deg, #0f8f54, #092f20); color: white; }
+.cj-hero-card a { color: white; border-color: rgba(255,255,255,.5); }
+.cj-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.cj-span { grid-column: 1 / -1; }
+.cj-pipeline, .cj-filters, .cj-actions, .cj-stepper, .cj-compare { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.cj-pipeline button, .cj-filters button, .cj-filters select, .cj-filters input, .cj-card input, .cj-card textarea, .cj-card select, .cj-page-head textarea, .cj-page-head input, .cj-page-head select { min-height: 44px; border: 1px solid var(--cj-border); border-radius: 12px; padding: 10px 12px; max-width: 100%; }
+.cj-list { display: grid; gap: 10px; }
+.cj-list a, .cj-row { display: grid; gap: 6px; padding: 14px; border: 1px solid var(--cj-border); border-radius: 14px; background: var(--cj-surface-soft); color: var(--cj-text); text-decoration: none; }
+.cj-badge { display: inline-flex; width: fit-content; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--cj-border); background: #eef8f2; color: #0b5d35; font-weight: 700; font-size: .86rem; }
+.cj-badge.submitted, .cj-badge.interviewing { background: #eff6ff; color: #174a7c; }
+.cj-badge.closed { background: #f7f2ee; color: #76513a; }
+.cj-progress { display: grid; gap: 6px; }
+.cj-progress-label { display: flex; justify-content: space-between; gap: 12px; }
+.cj-progress progress { width: 100%; height: 12px; accent-color: var(--cj-brand); }
+.cj-gap, .cj-disclaimer { background: #fff8e6; border: 1px solid #f2d48a; border-radius: 12px; padding: 12px; }
+.cj-check { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
+.cj-workspace { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, .8fr); gap: 18px; align-items: start; }
+.cj-workspace aside { position: sticky; top: 110px; }
+.cj-toasts { position: fixed; right: 16px; bottom: 16px; display: grid; gap: 10px; z-index: 50; max-width: min(420px, calc(100vw - 32px)); }
+.cj-toast { display: flex; gap: 10px; align-items: center; justify-content: space-between; background: #10231a; color: white; padding: 12px; border-radius: 14px; box-shadow: var(--cj-shadow); }
+.cj-toast button { min-height: 36px; color: white; background: transparent; border: 1px solid rgba(255,255,255,.35); border-radius: 10px; }
+.cj-dialog-backdrop { position: fixed; inset: 0; background: rgba(3, 21, 12, .55); z-index: 60; display: grid; place-items: center; padding: 20px; }
+.cj-dialog { max-width: 520px; background: white; border-radius: 20px; padding: 24px; box-shadow: var(--cj-shadow); }
+.cj-skeleton { min-height: 180px; border-radius: var(--cj-radius); background: linear-gradient(90deg,#eef8f2,#fff,#eef8f2); }
+.cj-compare { align-items: stretch; overflow-x: auto; padding-bottom: 6px; }
+.cj-compare > * { min-width: 240px; }
+.career-nav a { min-height: 44px; }
+.career-nav a[aria-current="page"] { background: var(--cj-brand); color: white; }
+.career-document[role="textbox"] { min-height: 360px; }
+@media (max-width: 760px) {
+  .career-header { align-items: stretch; gap: 10px; }
+  .career-brand-logo { max-width: 130px; height: auto; }
+  .career-nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+  .career-nav a { flex: 0 0 auto; }
+  .cj-grid, .cj-workspace { grid-template-columns: 1fr; }
+  .cj-workspace aside { position: static; }
+  .cj-main { padding-bottom: 96px; }
+  .cj-filters label { width: 100%; }
+  .cj-filters input, .cj-filters select { width: 100%; }
+}
