@@ -607,3 +607,183 @@ select:focus,
     width: min(100%, 260px);
   }
 }
+
+/* Application detail Apple-style controls */
+.application-doc-switch {
+  width: fit-content;
+  gap: 4px;
+  padding: 4px;
+  border-color: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  background: rgba(118, 118, 128, 0.12);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.application-doc-switch button {
+  min-height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--apple-muted);
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  transition: background .18s ease, color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.application-doc-switch button:hover {
+  color: var(--apple-ink);
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.application-doc-switch button[aria-pressed="true"] {
+  color: var(--apple-ink);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12), inset 0 0 0 0.5px rgba(0, 0, 0, 0.06);
+}
+
+.application-preflight-card {
+  display: grid;
+  gap: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(251,251,253,.84));
+}
+
+.application-preflight-header {
+  display: grid;
+  gap: 6px;
+}
+
+.application-preflight-header span {
+  color: var(--apple-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.application-preflight-header h2,
+.application-preflight-header p {
+  margin: 0;
+}
+
+.application-preflight-header h2 {
+  color: var(--apple-ink);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 760;
+  letter-spacing: -0.045em;
+}
+
+.application-preflight-header p,
+.application-preflight-note {
+  color: var(--apple-muted);
+  line-height: 1.5;
+}
+
+.application-checklist {
+  display: grid;
+  gap: 10px;
+}
+
+.application-check {
+  position: relative;
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 14px 16px;
+  border: 1px solid var(--apple-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--apple-ink);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.03);
+  transition: border-color .18s ease, background .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.application-check:hover {
+  border-color: rgba(0, 113, 227, 0.28);
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.application-check input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.application-check-box {
+  width: 26px;
+  height: 26px;
+  display: inline-grid;
+  place-items: center;
+  border: 1.5px solid rgba(60, 60, 67, 0.25);
+  border-radius: 999px;
+  background: #fff;
+  color: transparent;
+  font-size: 14px;
+  font-weight: 800;
+  transition: border-color .18s ease, background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.application-check input:checked + .application-check-box {
+  border-color: var(--apple-green);
+  background: var(--apple-green);
+  color: #fff;
+}
+
+.application-check input:focus-visible + .application-check-box {
+  outline: 3px solid rgba(0, 113, 227, 0.22);
+  outline-offset: 3px;
+}
+
+.application-check input:checked ~ .application-check-label {
+  color: var(--apple-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+.application-preflight-note {
+  margin: 0;
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 159, 10, 0.22);
+  border-radius: 16px;
+  background: rgba(255, 248, 232, 0.78);
+  font-size: 14px;
+}
+
+.application-submit-btn {
+  justify-self: start;
+  min-height: 44px;
+  padding-inline: 22px;
+  background: var(--apple-ink);
+}
+
+.application-submit-btn:hover {
+  background: #000;
+}
+
+@media (max-width: 680px) {
+  .application-doc-switch {
+    width: 100%;
+  }
+
+  .application-doc-switch button {
+    flex: 1 1 0;
+    padding-inline: 10px;
+  }
+
+  .application-submit-btn {
+    width: 100%;
+  }
+}
