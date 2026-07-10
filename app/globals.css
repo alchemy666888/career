@@ -222,3 +222,358 @@ label, .interview-answer label, .cj-filters label {
   .career-nav { display: flex; flex-wrap: nowrap; overflow-x: auto; }
   .career-nav a { white-space: nowrap; }
 }
+
+/* Apple-style flat refinement pass: unified tokens, controls, cards, labels */
+:root {
+  --apple-bg: #f5f5f7;
+  --apple-surface: rgba(255, 255, 255, 0.86);
+  --apple-surface-solid: #ffffff;
+  --apple-surface-muted: #fbfbfd;
+  --apple-ink: #1d1d1f;
+  --apple-muted: #6e6e73;
+  --apple-subtle: #86868b;
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0077ed;
+  --apple-blue-soft: #e8f2ff;
+  --apple-green: #34c759;
+  --apple-orange: #ff9f0a;
+  --apple-purple: #af52de;
+  --apple-line: rgba(0, 0, 0, 0.09);
+  --apple-line-strong: rgba(0, 0, 0, 0.14);
+  --apple-radius-sm: 12px;
+  --apple-radius: 18px;
+  --apple-radius-lg: 28px;
+  --apple-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
+  --apple-shadow-hover: 0 24px 54px rgba(0, 0, 0, 0.11);
+  --bg: var(--apple-bg);
+  --panel: var(--apple-surface);
+  --ink: var(--apple-ink);
+  --muted: var(--apple-muted);
+  --brand: var(--apple-blue);
+  --brand-strong: #005bb5;
+  --brand-dark: #003a75;
+  --line: var(--apple-line);
+  --cj-surface: var(--apple-surface);
+  --cj-surface-soft: var(--apple-surface-muted);
+  --cj-text: var(--apple-ink);
+  --cj-muted: var(--apple-muted);
+  --cj-border: var(--apple-line);
+  --cj-brand: var(--apple-blue);
+  --cj-brand-dark: #005bb5;
+  --cj-focus: var(--apple-blue);
+  --cj-radius: var(--apple-radius);
+  --cj-shadow: var(--apple-shadow);
+}
+
+body,
+.career-page,
+.cj-shell,
+.landing-page {
+  background:
+    radial-gradient(circle at 12% -8%, rgba(0, 113, 227, 0.12), transparent 30rem),
+    radial-gradient(circle at 92% 2%, rgba(175, 82, 222, 0.10), transparent 28rem),
+    linear-gradient(180deg, #fbfbfd 0%, var(--apple-bg) 58%, #f2f2f4 100%);
+  color: var(--apple-ink);
+}
+
+.career-container,
+.landing-header,
+.landing-hero,
+.landing-section,
+.container {
+  max-width: 1180px;
+}
+
+.career-header {
+  min-height: 80px;
+  padding: 14px max(24px, 6vw);
+  background: rgba(251, 251, 253, 0.78);
+  border-bottom: 1px solid var(--apple-line);
+  box-shadow: none;
+  backdrop-filter: saturate(180%) blur(22px);
+}
+
+.career-nav a,
+.cj-profile-pill,
+.landing-proof li,
+.landing-eyebrow,
+.career-filter,
+.career-tool,
+.career-doc-tab,
+.career-icon-btn,
+.cj-badge,
+.cj-pipeline button,
+.cj-filters button,
+.cj-filters select,
+.cj-filters input,
+.cj-card input,
+.cj-card textarea,
+.cj-card select,
+.cj-page-head input,
+.cj-page-head textarea,
+.cj-page-head select,
+.career-mini-panel input,
+.career-input-wrap,
+.input,
+textarea,
+select {
+  border-color: var(--apple-line);
+  border-radius: var(--apple-radius-sm);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--apple-ink);
+  box-shadow: none;
+}
+
+.career-nav a,
+.cj-profile-pill {
+  min-height: 40px;
+  padding: 0 14px;
+  color: var(--apple-muted);
+  font-weight: 650;
+}
+
+.career-nav a:hover,
+.cj-profile-pill:hover {
+  color: var(--apple-ink);
+  background: rgba(0, 0, 0, 0.04);
+  transform: none;
+  box-shadow: none;
+}
+
+.career-nav a.active,
+.career-nav a[aria-current="page"] {
+  color: #fff;
+  background: var(--apple-ink);
+  border-color: var(--apple-ink);
+  box-shadow: none;
+}
+
+.card,
+.career-search-card,
+.career-mini-panel,
+.career-job-card,
+.career-stat,
+.career-panel,
+.interview-summary article,
+.landing-preview,
+.landing-card,
+.cj-card,
+.cj-empty,
+.cj-dialog {
+  border: 1px solid var(--apple-line);
+  border-radius: var(--apple-radius-lg);
+  background: var(--apple-surface);
+  box-shadow: var(--apple-shadow);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.card:hover,
+.career-job-card:hover,
+.landing-card:hover,
+.cj-card:hover {
+  border-color: var(--apple-line-strong);
+  box-shadow: var(--apple-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.btn,
+.career-btn,
+.career-add-btn,
+.career-mini-panel button,
+.career-doc-tab.active,
+.career-filter.active,
+.cj-pipeline button[aria-pressed="true"] {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--apple-blue);
+  color: #fff;
+  box-shadow: none;
+  font-weight: 700;
+}
+
+.btn:hover,
+.career-btn:hover,
+.career-add-btn:hover,
+.career-mini-panel button:hover {
+  background: var(--apple-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.career-btn.secondary,
+.career-btn.ghost,
+.btn.secondary,
+.career-filter,
+.career-tool,
+.career-doc-tab,
+.career-icon-btn,
+.cj-pipeline button,
+.cj-filters button,
+.cj-toast button {
+  border: 1px solid var(--apple-line);
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--apple-blue);
+  box-shadow: none;
+}
+
+.career-btn.secondary:hover,
+.career-btn.ghost:hover,
+.career-filter:hover,
+.career-tool:hover,
+.career-doc-tab:hover,
+.career-icon-btn:hover,
+.cj-pipeline button:hover,
+.cj-filters button:hover {
+  background: rgba(0, 113, 227, 0.08);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.career-btn.dark,
+.landing-preview-card.featured,
+.cj-hero-card,
+.career-job-top {
+  background: #1d1d1f;
+  color: #fff;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.career-hero h1,
+.landing-hero h1,
+.career-page-title,
+.landing-section-heading h2,
+.career-section-header h2,
+.cj-page-head h1 {
+  color: var(--apple-ink);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+.career-lede,
+.landing-hero-copy > p,
+.career-section-header p,
+.cj-page-head > p,
+.career-job-card p,
+.landing-card p,
+.career-company,
+label,
+.interview-label,
+.cj-progress-label,
+.career-meta,
+.muted {
+  color: var(--apple-muted);
+}
+
+label,
+.interview-answer label,
+.cj-filters label,
+.interview-summary span,
+.interview-label {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.input,
+textarea,
+select,
+.career-mini-panel input,
+.career-compose textarea,
+.interview-answer textarea,
+.interview-notes textarea,
+.cj-filters select,
+.cj-filters input,
+.cj-card input,
+.cj-card textarea,
+.cj-card select,
+.cj-page-head textarea,
+.cj-page-head input,
+.cj-page-head select {
+  min-height: 46px;
+  padding: 11px 13px;
+  outline: none;
+}
+
+.input:focus,
+textarea:focus,
+select:focus,
+.career-mini-panel input:focus,
+.career-input-wrap:focus-within,
+.career-compose textarea:focus,
+.interview-answer textarea:focus,
+.interview-notes textarea:focus,
+.cj-filters select:focus,
+.cj-filters input:focus,
+.cj-card input:focus,
+.cj-card textarea:focus,
+.cj-card select:focus,
+.cj-page-head textarea:focus,
+.cj-page-head input:focus,
+.cj-page-head select:focus {
+  border-color: rgba(0, 113, 227, 0.62);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.14);
+}
+
+.career-tag,
+.career-chip,
+.cj-badge,
+.landing-proof li,
+.landing-eyebrow {
+  border-color: rgba(0, 113, 227, 0.12);
+  background: var(--apple-blue-soft);
+  color: #0057b8;
+  font-weight: 650;
+}
+
+.career-tag.purple { color: #7b2cbf; background: #f4e8ff; }
+.career-tag.blue { color: #0057b8; background: var(--apple-blue-soft); }
+.career-tag.gold { color: #9a5b00; background: #fff4df; }
+.cj-badge.submitted,
+.cj-badge.interviewing { background: var(--apple-blue-soft); color: #0057b8; }
+.cj-badge.closed { background: #f2f2f4; color: var(--apple-muted); }
+
+.career-score {
+  color: var(--apple-ink);
+  background: conic-gradient(var(--apple-green) 0 var(--score), #e5e5ea var(--score));
+  box-shadow: inset 0 0 0 7px rgba(255, 255, 255, 0.88);
+}
+.career-progress { background: #e5e5ea; }
+.career-progress span { background: var(--apple-green); }
+
+.career-job-actions,
+.cj-actions,
+.landing-actions,
+.career-actions {
+  align-items: center;
+}
+
+.cj-list a,
+.cj-row,
+.landing-preview-grid div,
+.landing-preview-card,
+.interview-stories article {
+  border-color: var(--apple-line);
+  border-radius: var(--apple-radius);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: none;
+}
+
+.career-notice,
+.interview-feedback,
+.cj-gap,
+.cj-disclaimer {
+  border-color: rgba(255, 159, 10, 0.22);
+  border-radius: var(--apple-radius);
+  background: #fff8e8;
+  color: #7a4b00;
+}
+
+.cj-toast {
+  background: rgba(29, 29, 31, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--apple-radius);
+  box-shadow: var(--apple-shadow);
+  backdrop-filter: saturate(180%) blur(20px);
+}
