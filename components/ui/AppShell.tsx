@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const links = [
   ["Dashboard", "/dashboard"], ["Profile", "/profile"], ["Jobs", "/jobs"],
-  ["Applications", "/applications"], ["Interviews", "/interviews"], ["Outcomes", "/outcomes"], ["Settings", "/settings"]
+  ["Applications", "/applications"], ["Saved", "/saved"], ["Interviews", "/interviews"], ["Outcomes", "/outcomes"], ["Settings", "/settings"]
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
