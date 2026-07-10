@@ -577,3 +577,33 @@ select:focus,
   box-shadow: var(--apple-shadow);
   backdrop-filter: saturate(180%) blur(20px);
 }
+
+
+/* Targeted sizing refinements for journey action controls */
+.career-btn-compact-centered {
+  justify-self: center;
+  width: fit-content;
+  min-width: 190px;
+  padding-inline: 18px;
+}
+
+.career-input-row button {
+  min-width: 76px;
+  padding-inline: 18px;
+}
+
+.application-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.application-card-actions {
+  margin-top: auto;
+}
+
+@media (max-width: 680px) {
+  .career-btn-compact-centered {
+    width: min(100%, 260px);
+  }
+}
