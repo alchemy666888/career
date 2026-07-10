@@ -36,7 +36,7 @@ export default function HomePage() {
     <main className="landing-page">
       <header className="landing-header" aria-label="Primary navigation">
         <Link className="landing-brand" href="/">
-          AI Job Search
+          <img className="landing-brand-logo" src="/careerai-logo.svg" alt="CareerAI" />
         </Link>
         <nav className="landing-auth-nav" aria-label="Account access">
           <Link className="career-btn secondary" href="/signin">
