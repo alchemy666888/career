@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CareerIcon } from "./icons";
@@ -13,8 +14,7 @@ export function CareerNav() {
   const pathname = usePathname();
   return <header className="career-header">
     <Link className="career-brand" href="/jobs">
-      <span className="career-logo"><CareerIcon name="brief" /></span>
-      <span><span className="career-brand-title">CareerAI</span><span className="career-brand-subtitle">Find work that fits your strengths</span></span>
+      <Image className="career-brand-logo" src="/careerai-logo.svg" alt="CareerAI" width={220} height={58} priority />
     </Link>
     <nav className="career-nav" aria-label="Career workspace">
       {navItems.map((item) => <Link key={item.href} className={pathname === item.href ? "active" : undefined} href={item.href}><CareerIcon name={item.icon} />{item.label}</Link>)}
