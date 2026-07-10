@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { CareerIcon } from "./icons";
 
 const navItems = [
-  { label: "Job Search", href: "/jobs", icon: "search" as const },
+  { label: "Search", href: "/jobs", icon: "search" as const },
   { label: "AI Drafts", href: "/applications", icon: "doc" as const },
   { label: "Saved", href: "/saved", icon: "save" as const }
 ];
