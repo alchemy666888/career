@@ -1,1 +1,6 @@
-export default function InterviewsPage(){ return <><h1>Interview prep</h1><section className="card"><h2>Preparation records</h2><p>Likely questions, STAR examples, honest gap handling notes, company research placeholders, and user notes are versioned per application.</p></section></> }
+import { CareerNav } from "@/components/career/CareerNav";
+import { InterviewPrepPage } from "@/components/career/InterviewPrepPage";
+
+export default function InterviewsPage() {
+  return <main className="career-page"><CareerNav /><InterviewPrepPage /></main>;
+}
