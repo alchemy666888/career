@@ -7,6 +7,7 @@ import { CareerIcon } from "./icons";
 const navItems = [
   { label: "Search", href: "/jobs", icon: "search" as const },
   { label: "AI Drafts", href: "/applications", icon: "doc" as const },
+  { label: "Interview prep", href: "/interviews", icon: "mic" as const },
   { label: "Saved", href: "/saved", icon: "save" as const }
 ];
 
