@@ -21,6 +21,7 @@ export const users = pgTable("users", {
   email: text("email").notNull().unique(),
   name: text("name"),
   image: text("image"),
+  emailVerified: timestamp("email_verified", { withTimezone: true }),
   role: text("role").default("user").notNull(),
   status: accountStatus("status").default("active").notNull(),
   deletedAt: timestamp("deleted_at", { withTimezone: true }),
@@ -340,10 +341,13 @@ export const backgroundJobs = pgTable("background_jobs", {
   attempts: integer("attempts").default(0).notNull(),
   maxAttempts: integer("max_attempts").default(3).notNull(),
   payload: jsonb("payload").notNull().default(sql`'{}'::jsonb`),
+  dedupeKey: text("dedupe_key"),
+  lockedBy: text("locked_by"),
+  lockedAt: timestamp("locked_at", { withTimezone: true }),
   lastErrorCode: text("last_error_code"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull()
-});
+}, (table) => ({ dedupeUnique: uniqueIndex("background_jobs_dedupe_unique").on(table.dedupeKey), claimIdx: index("background_jobs_claim_idx").on(table.status, table.runAfter) }));
 
 export const auditEvents = pgTable("audit_events", {
   id: uuid("id").primaryKey().defaultRandom(),

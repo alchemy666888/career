@@ -26,6 +26,7 @@ const serverSchema = z
     AUTH_GOOGLE_SECRET: z.string().optional(),
     RESEND_API_KEY: z.string().optional(),
     EMAIL_FROM: z.string().optional(),
+    ADMIN_EMAILS: z.string().optional(),
     DEEPSEEK_API_KEY: z.string().optional(),
     AI_ENABLED: optionalBoolean(false),
     EMAIL_AUTH_ENABLED: optionalBoolean(false),

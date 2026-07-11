@@ -443,7 +443,7 @@ feat(core): add repositories and transactional data access
 
 ## T05 — Implement Auth.js providers, database sessions, and administrator authorization
 
-- [ ] Complete T05.
+- [x] Complete T05.
 
 **Requirements:** AUTH-001 through AUTH-006, ADMIN-001, ADMIN-005, BR-006, NFR-SEC-001, NFR-SEC-004, NFR-COMP-004  
 **Dependencies:** T04
@@ -511,7 +511,7 @@ feat(auth): add providers sessions and authorization
 
 ## T06 — Add structured logging, correlation context, OpenTelemetry, and Sentry foundations
 
-- [ ] Complete T06.
+- [x] Complete T06.
 
 **Requirements:** NFR-OBS-001 through NFR-OBS-014, NFR-REL-003, NFR-REL-004, NFR-PRIV-001, PRIV-002, DEP-003  
 **Dependencies:** T02, T05
@@ -585,7 +585,7 @@ feat(observability): add logging tracing and error capture
 
 ## T07 — Add shared audit, quota, background-job, and action infrastructure
 
-- [ ] Complete T07.
+- [x] Complete T07.
 
 **Requirements:** BR-007, BR-008, AI-006 through AI-010, JOB-003, ADMIN-004, NFR-REL-001 through NFR-REL-004, NFR-SEC-007, NFR-OBS-004, NFR-OBS-010  
 **Dependencies:** T03, T04, T05, T06
@@ -654,7 +654,7 @@ feat(core): add audit quotas background jobs and wrappers
 
 ## T08 — Persist profile management and completeness
 
-- [ ] Complete T08.
+- [x] Complete T08.
 
 **Requirements:** PROF-001 through PROF-003, BR-001 through BR-003, BR-006, UX-001 through UX-005, NFR-A11Y-001 through NFR-A11Y-004  
 **Dependencies:** T04, T05, T06, T07

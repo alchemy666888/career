@@ -25,7 +25,10 @@
     "postgres": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "zod": "latest"
+    "zod": "latest",
+    "@opentelemetry/api": "1.9.0",
+    "@sentry/nextjs": "8.47.0",
+    "@vercel/otel": "1.11.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "latest",
