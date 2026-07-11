@@ -26,4 +26,10 @@ Core server variables: `DATABASE_URL`, `AUTH_SECRET`, and optional `AUTH_URL` / 
 
 Feature flags default to: `AI_ENABLED=false`, `EMAIL_AUTH_ENABLED=false`, `LIVE_JOB_INGESTION_ENABLED=false`, `ADMIN_INGESTION_ENABLED=false`, `ANONYMOUS_DEMO_ENABLED=true`, `SENTRY_ENABLED=false`, and `OTEL_ENABLED=true`. Enabling AI requires `DEEPSEEK_API_KEY`; enabling email auth requires Resend sender configuration; enabling ingestion requires cron protection; enabling Sentry requires Sentry DSN configuration.
 
+## Database reset and development seed
+
+T03 replaces the fixture-era schema with a forward-only Drizzle migration under `db/migrations/`. For local or dedicated Preview databases, run `npm run db:migrate` after configuring `DATABASE_URL`. To replay against a safe local/test target, `npm run db:reset:dev` refuses `NODE_ENV=production`, `VERCEL_ENV=production`, and production-looking database URLs before invoking Drizzle. Production databases must never be reset automatically.
+
+`npm run db:seed:dev` is a deterministic development-only placeholder. Seeded records must remain limited to local/demo/test workflows and must not power authenticated Production routes.
+
 See `docs/vercel-deployment.md` for Vercel deployment steps. Every key listed in `.env.example` must be configured in Vercel Cloud for Preview and Production; committed `.env` files are forbidden.

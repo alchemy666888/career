@@ -31,9 +31,12 @@
 |---|---|---|---|---|
 | T01 | Ready to commit | HEAD after commit | `npm install`; `npm run lint`; `npm run typecheck`; `npm test`; `npm run build`; `npm run db:check`; `git status`; `git diff --check` all passed unless noted. | Specs were already present; added baseline implementation log and inventory. |
 | T02 | Ready to commit | HEAD after commit | `npm run lint`; `npm run typecheck`; `npm test -- env flags`; `git diff --check` passed. | Added Zod environment parsing, server feature flags, test database safety checks, docs, and config tests. |
+| T03 | Ready to commit | HEAD after commit | `npm run lint`; `npm run typecheck`; `npm run db:generate`; `npm run db:check`; `npm test -- schema migrations`; `git diff --check` passed. `npm run db:migrate` could not complete because no local PostgreSQL server/client is available in the container. | Rebuilt the Drizzle journey schema, generated forward migration metadata, added safe reset/development seed scripts, and documented Production reset prohibition. |
+| T04 | Ready to commit | HEAD after commit | `npm run lint`; `npm run typecheck`; `npm test -- repositories transactions ownership`; `git diff --check` passed. | Added server-side DB client, ownership-scoped repositories, transactional helpers, bounded pagination, and test identity/cleanup utilities. |
 
 ## Manual Verification Required
 - No live external-service smoke tests performed at baseline.
 
 ## Deviations and Blockers
 - The local repository contains no configured remote and no local `main` branch ref, so the starting SHA is recorded from current HEAD at branch creation rather than `git rev-parse main`.
+- `npm run db:migrate` requires a reachable PostgreSQL database; none is available in this container, so migration application remains manually required against a safe local/test database.
