@@ -164,7 +164,7 @@ The final documentation task consolidates:
 
 ## T01 — Establish the implementation branch and approved specification baseline
 
-- [ ] Complete T01.
+- [x] Complete T01.
 
 **Requirements:** DEP-001, DEP-003, DEP-004, NFR-MAINT-001, NFR-MAINT-004  
 **Dependencies:** None
@@ -231,7 +231,7 @@ chore(spec): add approved job hunter journey specifications
 
 ## T02 — Add validated environment configuration and feature flags
 
-- [ ] Complete T02.
+- [x] Complete T02.
 
 **Requirements:** AI-003, AI-008, AUTH-004, JOB-002, JOB-003, DEP-003, DEP-004, NFR-SEC-004, NFR-MAINT-002  
 **Dependencies:** T01
@@ -295,7 +295,7 @@ feat(config): add validated environment and feature flags
 
 ## T03 — Rebuild the Drizzle schema and forward-only migration foundation
 
-- [ ] Complete T03.
+- [x] Complete T03.
 
 **Requirements:** BR-002, BR-006, BR-008, AUTH-005, PROF-001, RES-002, JOB-006, MATCH-002, TAILOR-006, TAILOR-009, TRACK-001, TRACK-004, PRIV-003, AI-010, NFR-COMP-002, NFR-COMP-003  
 **Dependencies:** T02
@@ -378,7 +378,7 @@ feat(db): rebuild journey schema and migrations
 
 ## T04 — Implement database client, repositories, transactions, and test-database utilities
 
-- [ ] Complete T04.
+- [x] Complete T04.
 
 **Requirements:** BR-006, NFR-SEC-001, NFR-PERF-001, NFR-PERF-004, NFR-REL-002, NFR-MAINT-002, NFR-MAINT-003, NFR-COMP-001, NFR-COMP-002  
 **Dependencies:** T03
