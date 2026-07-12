@@ -39,6 +39,10 @@
 | T08 | Ready to commit | HEAD after commit | `npm run lint`; `npm run typecheck`; `npm test -- profile completeness authorization`; `git diff --check` passed. | Replaced fixture-backed profile route with server profile view/action, deterministic completeness, broad-role fields, owner checks, audit logging, and accessible feedback. |
 | T09 | Ready to commit | HEAD after commit | `npm run lint`; `npm run typecheck`; `npm test -- resume parser import provenance redaction`; `git diff --check` passed. | Added deterministic PDF/DOCX upload validation, transient byte cleanup, source hashing, first-import action/UI, evidence provenance, parser tests, and pinned parser dependency notes. |
 
+| T10 | Ready to commit | HEAD after commit | `npm run lint`; `npm run typecheck`; `npm test -- resume replacement deletion reconciliation`; `npm run build`; `npm run db:check`; `git diff --check` passed. | Added transactional résumé replacement preview/confirmation, imported claim correction, source deletion with dependent-data exclusion, accessible UI controls, tests, and privacy documentation. |
+
+| T11 | Ready to commit | HEAD after commit | `npm run lint`; `npm run typecheck`; `npm test -- job provider normalize dedupe manual-import`; `git diff --check` passed. | Added provider contracts, deterministic mock/manual providers, disabled dynamic JobSpy adapter, normalization/dedupe helpers, manual import action/UI, tests, and README notes. |
+
 ## Manual Verification Required
 - No live external-service smoke tests performed at baseline.
 

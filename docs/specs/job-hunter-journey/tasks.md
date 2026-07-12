@@ -777,7 +777,7 @@ feat(profile): add secure resume parsing and import
 
 ## T10 — Implement résumé replacement, correction, deletion, and profile reconciliation
 
-- [ ] Complete T10.
+- [x] Complete T10.
 
 **Requirements:** RES-003 through RES-005, PRIV-002, PRIV-003, BR-002, BR-003, UX-002, NFR-PRIV-003, NFR-OBS-004  
 **Dependencies:** T09
@@ -840,7 +840,7 @@ feat(profile): add resume replacement and deletion
 
 ## T11 — Implement job-provider contracts, normalization, deduplication, and manual import
 
-- [ ] Complete T11.
+- [x] Complete T11.
 
 **Requirements:** JOB-001, JOB-002, JOB-005, JOB-006, JOB-011, BR-006, NFR-SEC-002, NFR-SEC-006  
 **Dependencies:** T04, T07, T10
