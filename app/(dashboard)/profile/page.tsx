@@ -1,4 +1,3 @@
-import { getServerSession } from "next-auth";
 import { CareerProfilePage } from "@/components/career/profile/CareerProfilePage";
 import { requireActiveUser } from "@/lib/auth/authorization";
 import { getDb } from "@/lib/db";
