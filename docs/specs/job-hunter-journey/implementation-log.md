@@ -78,3 +78,5 @@
 | T32 | Complete | HEAD after commit | lint/typecheck and targeted validation recorded in task execution; final gates noted in T34 | chore: harden security accessibility and observability. |
 | T33 | Complete | HEAD after commit | lint/typecheck and targeted validation recorded in task execution; final gates noted in T34 | docs: add deployment configuration and runbooks. |
 | T34 | Complete | HEAD after commit | lint/typecheck and targeted validation recorded in task execution; final gates noted in T34 | chore: complete full journey acceptance checks. |
+
+| Cron fix | Complete | HEAD after commit | `npm run lint`; `npm run typecheck`; `npm test -- ingestion cron`; `npm run build`; `git diff --check` | Removed Vercel Cron configuration and added an externally callable REST ingestion trigger at `/api/ingestion/jobs/run`. |
